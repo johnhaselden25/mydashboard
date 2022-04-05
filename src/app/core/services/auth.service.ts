@@ -32,6 +32,17 @@ export class AuthenticationService {
         });
     }
 
+    /*
+     * Performs the auth with Google
+     */
+    
+     loginGoogle() {
+        return getFirebaseBackend().loginUserGoogle().then((response: any) => {
+            const user = response;
+            return user;
+        });
+    }
+
     /**
      * Performs the register
      * @param email email

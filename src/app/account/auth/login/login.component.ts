@@ -48,6 +48,21 @@ export class LoginComponent implements OnInit {
   // convenience getter for easy access to form fields
   get f() { return this.loginForm.controls; }
 
+  /*
+   * Google Login JH1234
+   */
+
+  onGoogleLogin() {
+  if (environment.defaultauth === 'firebase') {
+    this.authenticationService.loginGoogle().then((res: any) => {
+      this.router.navigate(['/dashboard']);
+    })
+      .catch(error => {
+        this.error = error ? error : '';
+      });
+  }
+  }
+
   /**
    * Form submit
    */
